@@ -13,7 +13,7 @@
     View Account: Display the account with the total amount and goals/budgets(potentially both as dollar amounts and as percentages of the total)"""
 
 # dictionary created as a place to store users. Might consider using a random number generator and associate a user's chosen name with the number
-user_base = {}
+# user_base = {}
 
 
 class User:
@@ -21,7 +21,7 @@ class User:
         # dictionary of goals to be updated with the user
         self.goals = {}
         
-        self.total = account_total
+        self.account_total = account_total
 
     def add_goal(self, goal_name, goal_amount):
         self.goal_name = goal_name
@@ -30,7 +30,7 @@ class User:
         # updating goal dictionary
         self.goals[goal_name] = goal_amount
 
-    def edit_goal(self, goal_name, new_goal_amount):
+    def update_goal(self, goal_name, new_goal_amount):
         if self.goal_name in self.goals:
             self.goals[goal_name] = new_goal_amount
         else:
@@ -42,4 +42,19 @@ class User:
         else:
             print(f"Goal '{self.goal_name}' does not exist")
     
+    def view_goals(self):
+        if not self.goals:
+            print("No goals set.")
+        else:
+            print("Your Goals:")
+            for goal_name, goal_amount in self.goals.items():
+                print(f"{goal_name}: ${goal_amount}")
+
+    def update_account_total(self, new_total):
+        self.account_total = new_total
+        if self.account_total > 0:
+            print(f"YOUR ACCOUNT IS IN THE NEGATIVES. T UP!")
     
+    def view_full_account(self):
+        print(f"Current Balance: {self.account_total}")
+        self.view_goals()

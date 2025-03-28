@@ -13,7 +13,7 @@ FEATURES(keep in mind, everuthing needs to be manually entered until we can inte
   
     Account Amount Update: Update the total amount on the account
   
-    View Account: Display the account with the total amount and goals/budgets(potentially both as dollar amounts and as percentages of the total
+    View Account: Display the account with the total amount and goals/budgets(potentially both as dollar amounts and as percentages of the total)
 
 POTENTIAL FUTURE FEATURES:
   
