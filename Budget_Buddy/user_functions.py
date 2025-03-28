@@ -21,22 +21,25 @@ class User:
         # dictionary of goals to be updated with the user
         self.goals = {}
         
-        self.account_total = account_total
+        self.account_total = float(account_total)
 
     def add_goal(self, goal_name, goal_amount):
+        goal_name = goal_name.upper()
         self.goal_name = goal_name
-        self.goal_amount = goal_amount
+        self.goal_amount = float(goal_amount)
         
         # updating goal dictionary
-        self.goals[goal_name] = goal_amount
+        self.goals[goal_name] = float(goal_amount)
 
     def update_goal(self, goal_name, new_goal_amount):
+        goal_name = goal_name.upper()
         if self.goal_name in self.goals:
-            self.goals[goal_name] = new_goal_amount
+            self.goals[goal_name] = float(new_goal_amount)
         else:
             print(f"Goal '{goal_name}' does not exist.")
     
     def delete_goal(self, goal_name):
+        goal_name = goal_name.upper()
         if self.goal_name in self.goals:
             del self.goals[goal_name]
         else:
@@ -48,13 +51,33 @@ class User:
         else:
             print("Your Goals:")
             for goal_name, goal_amount in self.goals.items():
-                print(f"{goal_name}: ${goal_amount}")
+                print(f"{goal_name}: ${goal_amount:.2f}")
 
     def update_account_total(self, new_total):
-        self.account_total = new_total
-        if self.account_total > 0:
+        self.account_total = float(new_total)
+        if self.account_total < 0:
             print(f"YOUR ACCOUNT IS IN THE NEGATIVES. T UP!")
     
     def view_full_account(self):
-        print(f"Current Balance: {self.account_total}")
+        print(f"Current Balance: ${self.account_total:.2f}")
         self.view_goals()
+
+    def get_expendable_amount(self):
+        budgeted = 0
+        for goal_amount in self.goals.values():
+            budgeted += goal_amount
+        
+        print(f"You have ${self.account_total - budgeted} left to budget.")
+
+#code for testing
+    #josh = User(5000)
+    #josh.add_goal("tuition", 750)
+    #josh.add_goal("car", 3000)
+    #josh.add_goal("car insurance", 365)
+    #josh.add_goal("phone", 50)
+    #josh.update_goal("tuition", 500)
+    #josh.delete_goal("tuition")
+    #josh.view_goals()
+    #josh.update_account_total(6000)
+    #josh.view_full_account()
+    #josh.get_expendable_amount()
