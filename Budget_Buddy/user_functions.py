@@ -10,7 +10,10 @@
   
     Account Amount Update: Update the total amount on the account
   
-    View Account: Display the account with the total amount and goals/budgets(potentially both as dollar amounts and as percentages of the total)"""
+    View Account: Display the account with the total amount and goals/budgets(potentially both as dollar amounts and as percentages of the total)
+    
+    IMPORTANT: these are the main functions that I have tested and do work. Everything as far as the other folders and functions
+    """
 
 # dictionary created as a place to store users. Might consider using a random number generator and associate a user's chosen name with the number
 # user_base = {}

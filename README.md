@@ -22,3 +22,8 @@ POTENTIAL FUTURE FEATURES:
     Spending Categories: Separate spending into classes based on category(Subscription, food, transport etc.)
     
     Time Goal: Set goals to be completed my a certain day. Suggestions for how much to put towards that goal per pay period
+
+STRUCTURE:
+    Backend: python with the django framework
+    Database: SQL - postgreSQL
+    Frontend: JavaScript with the react native framework
